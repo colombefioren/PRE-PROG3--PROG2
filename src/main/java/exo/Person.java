@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -13,7 +13,7 @@ public class Person {
     private int id;
     private String firstName;
     private String lastName;
-    private Instant dateOfBirth;
+    private Date dateOfBirth;
     private String email;
     private String phoneNumber;
 }
