@@ -1,12 +1,13 @@
 package exo;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Tutor extends Person{
-    private String linkWithStudentDesc;
+@SuperBuilder
+public class Tutor extends Person {
+  private String linkWithStudentDesc;
 }

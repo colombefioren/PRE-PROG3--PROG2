@@ -3,12 +3,13 @@ package exo;
 import java.time.Instant;
 import java.util.List;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 public class Teacher extends Person {
   private Speciality speciality;
 

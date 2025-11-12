@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Exam {
-    private int id;
-    private String title;
-    private Course course;
-    private Instant date;
-    private double coefficient;
+  private int id;
+  private String title;
+  private Course course;
+  private Instant date;
+  private double coefficient;
 }

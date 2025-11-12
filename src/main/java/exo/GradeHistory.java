@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class GradeHistory {
-    private double grade;
-    private Instant dateOfModification;
-    private String changeReason;
+  private double grade;
+  private Instant dateOfModification;
+  private String changeReason;
 }
