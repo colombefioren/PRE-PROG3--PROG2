@@ -3,12 +3,14 @@ package exo;
 import java.time.Instant;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Grade {
   private double initialValue = 0.0;
   private List<GradeHistory> gradeHistoryList = List.of(new GradeHistory(0.0, Instant.now(), ""));

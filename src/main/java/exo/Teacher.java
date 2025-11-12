@@ -2,15 +2,13 @@ package exo;
 
 import java.time.Instant;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Teacher extends Person {
   private Speciality speciality;
 

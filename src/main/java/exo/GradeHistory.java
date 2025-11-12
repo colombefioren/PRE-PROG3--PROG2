@@ -1,14 +1,15 @@
 package exo;
 
+import java.time.Instant;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.Instant;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class GradeHistory {
     private double grade;
     private Instant dateOfModification;
