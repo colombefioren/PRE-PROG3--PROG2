@@ -80,16 +80,16 @@ public class GradingSystemTest {
             .build();
 
     student =
-            Student.builder()
-                    .id(1)
-                    .firstName("Coco")
-                    .lastName("Rakoto")
-                    .email("coco@gmail.com")
-                    .dateOfBirth(LocalDate.of(2007, 4, 7))
-                    .phoneNumber("06-12-34-56-78")
-                    .group("K1")
-                    .tutor(tutor)
-                    .build();
+        Student.builder()
+            .id(1)
+            .firstName("Coco")
+            .lastName("Rakoto")
+            .email("coco@gmail.com")
+            .dateOfBirth(LocalDate.of(2007, 4, 7))
+            .phoneNumber("06-12-34-56-78")
+            .group("K1")
+            .tutor(tutor)
+            .build();
 
     GradeHistory gradeHistory1 =
         GradeHistory.builder()
@@ -129,12 +129,17 @@ public class GradingSystemTest {
     grade3 = Grade.builder().exam(exam3).initialValue(18).student(student).build();
 
     student.setGrades(List.of(grade1, grade2, grade3));
-
   }
 
   @Test
-  void should_return_the_correct_grade_for_a_given_date() throws Exception {
+  void should_return_the_correct_grade_for_a_given_date_and_hour() throws Exception {
     assertEquals(11, grade1.getGradeByInstant(Instant.parse("2025-11-10T00:00:00Z")));
     assertEquals(10, grade1.getGradeByInstant(Instant.parse("2025-11-11T00:00:00Z")));
+  }
+
+  @Test
+  void should_return_the_correct_grade_for_a_given_exam_student_date_and_hour() throws Exception {
+    assertEquals(10, teacher.getExamGrade(exam1, student, Instant.parse("2025-11-11T00:00:00Z")));
+    assertEquals(15, teacher.getExamGrade(exam2, student, Instant.parse("2025-11-11T00:00:00Z")));
   }
 }
