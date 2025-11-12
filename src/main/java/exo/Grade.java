@@ -14,4 +14,6 @@ public class Grade {
     private List<GradeHistory> gradeHistoryList;
     private Exam exam;
     private Student student;
+
+
 }
