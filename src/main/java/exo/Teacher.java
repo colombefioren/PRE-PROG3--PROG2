@@ -1,6 +1,7 @@
 package exo;
 
 import java.time.Instant;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,5 +27,21 @@ public class Teacher extends Person {
               }
             })
         .orElseThrow(() -> new Exception("No grade found for exam " + exam + " at instant " + t));
+  }
+
+  public double getCourseGrade(Course course, Student student, Instant t) throws Exception {
+    List<Grade> courseGradeList =
+        student.getGrades().stream()
+            .filter(grade -> grade.getExam().getCourse().equals(course))
+            .toList();
+
+    double totalCourseGrade = 0;
+    double totalCoeff = 0;
+    for (Grade grade : courseGradeList) {
+      totalCourseGrade += grade.getGradeByInstant(t) * grade.getExam().getCoefficient();
+      totalCoeff += grade.getExam().getCoefficient();
+    }
+
+    return totalCourseGrade / totalCoeff;
   }
 }
