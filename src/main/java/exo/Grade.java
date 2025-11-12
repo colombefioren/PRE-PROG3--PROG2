@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Grade {
   private double initialValue = 0.0;
-  private List<GradeHistory> gradeHistoryList = List.of(new GradeHistory(0.0, Instant.now(), ""));
+  private List<GradeHistory> gradeHistoryList =
+      List.of(new GradeHistory(this.initialValue, Instant.now(), ""));
   private Exam exam;
   private Student student;
 
