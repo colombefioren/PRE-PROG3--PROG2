@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class GradingSystemTest {
 
@@ -78,6 +79,18 @@ public class GradingSystemTest {
             .course(course1)
             .build();
 
+    student =
+            Student.builder()
+                    .id(1)
+                    .firstName("Coco")
+                    .lastName("Rakoto")
+                    .email("coco@gmail.com")
+                    .dateOfBirth(LocalDate.of(2007, 4, 7))
+                    .phoneNumber("06-12-34-56-78")
+                    .group("K1")
+                    .tutor(tutor)
+                    .build();
+
     GradeHistory gradeHistory1 =
         GradeHistory.builder()
             .grade(11.0)
@@ -114,17 +127,14 @@ public class GradingSystemTest {
             .build();
 
     grade3 = Grade.builder().exam(exam3).initialValue(18).student(student).build();
-    student =
-        Student.builder()
-            .id(1)
-            .firstName("Coco")
-            .lastName("Rakoto")
-            .email("coco@gmail.com")
-            .dateOfBirth(LocalDate.of(2007, 4, 7))
-            .phoneNumber("06-12-34-56-78")
-            .group("K1")
-            .grades(List.of(grade1, grade2, grade3))
-            .tutor(tutor)
-            .build();
+
+    student.setGrades(List.of(grade1, grade2, grade3));
+
+  }
+
+  @Test
+  void should_return_the_correct_grade_for_a_given_date() throws Exception {
+    assertEquals(11, grade1.getGradeByInstant(Instant.parse("2025-11-10T00:00:00Z")));
+    assertEquals(10, grade1.getGradeByInstant(Instant.parse("2025-11-11T00:00:00Z")));
   }
 }
