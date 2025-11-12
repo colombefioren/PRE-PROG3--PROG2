@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Grade {
-  private double initialValue;
-  private List<GradeHistory> gradeHistoryList;
+  private double initialValue = 0.0;
+  private List<GradeHistory> gradeHistoryList = List.of(new GradeHistory(0.0, Instant.now(), ""));
   private Exam exam;
   private Student student;
 
@@ -23,7 +23,7 @@ public class Grade {
         .orElseThrow(() -> new Exception("No grade found for instant: " + instant));
   }
 
-  public void updateGrade(double newGrade, String changeReason){
+  public void updateGrade(double newGrade, String changeReason) {
     gradeHistoryList.add(new GradeHistory(newGrade, Instant.now(), changeReason));
   }
 }
