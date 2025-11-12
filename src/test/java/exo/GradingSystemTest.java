@@ -142,4 +142,10 @@ public class GradingSystemTest {
     assertEquals(10, teacher.getExamGrade(exam1, student, Instant.parse("2025-11-11T00:00:00Z")));
     assertEquals(15, teacher.getExamGrade(exam2, student, Instant.parse("2025-11-11T00:00:00Z")));
   }
+
+  @Test
+  void should_return_the_final_grade_for_a_given_course_student_date_and_hour() throws Exception {
+    assertEquals(
+        13, teacher.getCourseGrade(course2, student, Instant.parse("2025-11-11T00:00:00Z")));
+  }
 }
