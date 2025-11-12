@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Course {
-    private int id;
-    private String label;
-    private double credit;
-    private Teacher teacher;
+  private int id;
+  private Label label;
+  private double credit;
+  private Teacher teacher;
 }
