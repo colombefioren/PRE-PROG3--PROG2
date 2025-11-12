@@ -22,4 +22,8 @@ public class Grade {
         .map(GradeHistory::getGrade)
         .orElseThrow(() -> new Exception("No grade found for instant: " + instant));
   }
+
+  public void updateGrade(double newGrade, String changeReason){
+    gradeHistoryList.add(new GradeHistory(newGrade, Instant.now(), changeReason));
+  }
 }
